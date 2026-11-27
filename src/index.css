@@ -1,0 +1,270 @@
+@import 'tailwindcss';
+
+/* =========================
+   DARK THEME (DEFAULT)
+========================= */
+
+:root {
+   /* COLORS */
+   --primary: #181422;
+   --secondary: #1D1B20;
+   --tertiary: #C9A74D;
+
+   --success: #22c55e;
+   --warning: #eab308;
+   --danger: #ef4444;
+
+   /* BACKGROUNDS */
+   --bg-main: #141218;
+   --bg-surface: #0F0D13;
+   --bg-card: #1e293b;
+   --bg-hover: #2b3548;
+
+   /* TEXT */
+   --text-primary: #f8fafc;
+   --text-secondary: #cbd5e1;
+   --text-muted: #94a3b8;
+   --text-gray: #9CA3AF;
+
+   --primary-button-bg: #9333ea;
+   --primary-button-text: #ffffff;
+
+   /* BORDER */
+   --border-color: #2d3748;
+
+   /* SHADOW */
+   --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+   /* RADIUS */
+   --radius-md: 10px;
+
+   /* Table border */
+   --table-border: #343341;
+
+   /* Table row border */
+   --row-border: #302F39;
+
+   /* Hover */
+   --row-hover-bg: #25242E;
+
+   /* table-header-bg */
+   --table-header-bg: #1C1B24;
+
+   /* Action Button Hover Background */
+   --action-hover-bg: #343341;
+
+   /* Pagination Button Background */
+   --pagination-bg: #181620;
+
+    /* Employee Modal - Purple Accent */
+   --modal-accent: #a855f7;
+   --modal-accent-hover: #9333ea;
+   --modal-accent-soft: rgba(168, 85, 247, 0.14);
+
+   /* Employee Status */
+   --status-active-bg: rgba(34, 197, 94, 0.15);
+   --status-active-text: #22c55e;
+
+   --status-inactive-bg: rgba(239, 68, 68, 0.15);
+   --status-inactive-text: #ef4444;
+
+   /* Modal Overlay */
+   --modal-overlay: rgba(0, 0, 0, 0.70);
+}
+
+
+/* =========================
+     LIGHT THEME
+  ========================= */
+
+.light {
+   /* COLORS */
+   --primary: #6063EE;
+   --secondary: #475569;
+   --tertiary: #c2410c;
+
+   --success: #16a34a;
+   --warning: #ca8a04;
+   --danger: #dc2626;
+
+   /* BACKGROUNDS */
+   --bg-main: #f8fafc;
+   --bg-surface: #ffffff;
+   --bg-card: #e2e8f0;
+   --bg-hover: #dbe4f0;
+
+   /* TEXT */
+   --text-primary: #0f172a;
+   --text-secondary: #334155;
+   --text-muted: #64748b;
+   --text-gray: #6B7280;
+
+   /* BORDER */
+   --border-color: #cbd5e1;
+
+   /* SHADOW */
+   --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+   /* Table */
+   /* Table border */
+   --table-border: #CBD5E1;
+
+   /* Table row border */
+   --row-border: #D5DCE5;
+
+   /* Table row Hover */
+   --row-hover-bg: #F1F5F9;
+
+   /* table-header-bg */
+   --table-header-bg: #EEF1F5;
+
+   /* Action Button Hover Background */
+   --action-hover-bg: #E2E8F0;
+
+   /* Pagination Button Background */
+   --pagination-bg: #F1F5F9;
+
+   --primary-button-bg: #2563eb;
+   --primary-button-text: #ffffff;
+
+   /* Employee Modal - Purple Accent */
+   --modal-accent: #9333ea;
+   --modal-accent-hover: #7e22ce;
+   --modal-accent-soft: rgba(147, 51, 234, 0.10);
+
+   /* Employee Status */
+   --status-active-bg: rgba(22, 163, 74, 0.12);
+   --status-active-text: #15803d;
+
+   --status-inactive-bg: rgba(220, 38, 38, 0.10);
+   --status-inactive-text: #dc2626;
+
+   /* Modal Overlay */
+   --modal-overlay: rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+     GLOBAL STYLES
+  ========================= */
+
+body {
+   background: var(--bg-main);
+   color: var(--text-primary);
+   transition: 0.3s ease;
+}
+
+/* Dark Theme (default) */
+:root input[type="date"]::-webkit-calendar-picker-indicator {
+   filter: invert(1);
+   cursor: pointer;
+}
+
+/* Light Theme */
+.light input[type="date"]::-webkit-calendar-picker-indicator {
+   filter: none;
+   cursor: pointer;
+}
+
+/* CSV button animation */
+.csv-export-button {
+   position: relative;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   overflow: hidden;
+   padding: 10px 17px;
+   border: 1px solid var(--border-color);
+   border-radius: 12px;
+   background: var(--bg-surface);
+   color: var(--text-secondary);
+   transition: none;
+}
+
+.csv-export-button:active {
+   transform: scale(0.98);
+}
+
+.csv-shine {
+   position: absolute;
+   top: -150%;
+   left: -60%;
+   width: 40%;
+   height: 400%;
+   pointer-events: none;
+   background: linear-gradient(90deg,
+         transparent,
+         rgba(255, 255, 255, 0.04),
+         rgba(255, 255, 255, 0.18),
+         rgba(255, 255, 255, 0.85),
+         rgba(255, 255, 255, 0.3),
+         rgba(255, 255, 255, 0.06),
+         transparent);
+   transform: rotate(22deg);
+   opacity: 0;
+}
+
+.animate-shine {
+   animation: premium-shine 1400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes premium-shine {
+   0% {
+      left: -60%;
+      opacity: 0;
+   }
+
+   15% {
+      opacity: 1;
+   }
+
+   100% {
+      left: 150%;
+      opacity: 0;
+   }
+}
+
+/* Input Filed */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+   -webkit-box-shadow: 0 0 0 1000px var(--bg-surface) inset !important;
+   -webkit-text-fill-color: var(--text-primary) !important;
+   caret-color: var(--text-primary);
+   transition: background-color 9999s ease-in-out 0s;
+}
+
+
+
+
+
+
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #252525;
+  border-radius: 8px;
+}
+
+.skeleton-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.08) 35%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(255, 255, 255, 0.08) 65%,
+    transparent 80%
+  );
+  animation: shimmer 1.8s infinite;
+}
